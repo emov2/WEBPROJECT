@@ -1,0 +1,116 @@
+:root{
+    --border-clr: #03045e;
+    --darkerbackground: #023E8A;
+    --background-clr: #014f86;
+    --background2-clr: #0077b6;
+    --lighterbackground:#0096C7;
+    --hover-clr: #0077b6;
+    --lighterhover: #48CAE4;
+    --box1:#CAF0F8;
+    --box2:#ADE8F4;
+    --box3: #90E0EF;
+    --whitetext: #FFFFFF;
+}
+
+/*js'de kullanmak icin submenu classlari*/
+#sidebar .sub-menu.show{
+    grid-template-rows: 1fr; /*1 fraction responsive oldugundan auto gibi calisiyor */
+}
+
+#sidebar .sub-menu.stayopen{
+    transition: 0ms; /*1 fraction responsive oldugundan auto gibi calisiyor */
+}
+
+.rotate svg:last-child{ 
+    rotate: 180deg; 
+}/*  lastchild olmazsa ilk icon da donuyor */
+
+
+/* bastan yuklenirken bastan yuklendigi belli olmasin diye */
+html{
+    scroll-behavior: smooth;
+}
+
+#sidebar{
+    box-sizing: border-box;
+    height: 100%;
+    width: 250px;
+    padding: 5px 1em;
+    background-color: var(--background-clr);
+    border-right: 2px solid var(--border-clr);
+}
+
+.headerspan{
+    padding: 1.3em;
+    background-color: #014f86;
+    #baslik{
+        margin-left: 1em;
+        font-size: 2rem;
+        font:1em;
+        color: var(--whitetext);
+    }
+}
+
+.container{
+    padding: 1em;   
+    margin: 1em;
+
+}
+
+.wrapperUl{
+    list-style-type: none;
+}
+
+.liHeader{
+    background-color: var(--background-clr);
+    border-radius: 1em 1em 0em 0em;
+    padding: 1em;
+}
+
+.explain{
+    padding: 1.5em;
+    background-color: var(--whitetext);
+    border-radius: 0em 0em 1em 1em;
+    color: black;
+    /* tasmalari engellemek icin */
+    ol{
+        list-style-position: inside; 
+
+    }
+    ol li{
+        font-size: 1.3em;
+    }
+    ol li::marker{
+        font-weight: bold;
+    }
+
+}
+
+.video{
+    margin-bottom: 1.5em;
+    width: 560;
+    height: 315;
+    padding: 1em;
+    background-color: var(--lighterhover);
+    border-radius: 1em;
+}
+
+/* sagdan ve asagidan responsive olacak sekilde viewwidth ve viewheight ile sabitliyoruz */
+.toTop{
+    display: inline-block;
+    padding: 0.5em;
+    position: fixed;
+    right: 5vw;
+    bottom: 5vh;
+    width: 30px;
+    height: 35px;
+    background-color: var(--box3);
+    border-radius: 5em;
+}
+.toTop:hover{
+    background-color: var(--lighterhover);
+}
+
+.toTop:active{
+    background-color: var(--darkerbackground);
+}

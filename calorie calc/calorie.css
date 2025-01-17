@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+:root{
+    --border-clr: #03045e;
+    --darkerbackground: #023E8A;
+    --background-clr: #014f86;
+    --background2-clr: #0077b6;
+    --lighterbackground:#0096C7;
+    --hover-clr: #0077b6;
+    --lighterhover: #48CAE4;
+    --box1:#CAF0F8;
+    --box2:#ADE8F4;
+    --box3: #90E0EF;
+    --whitetext: #FFFFFF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: Inter;
+    line-height: 1.5rem;
+}
+/* main{
+    padding: min(24px,7%);
+} */
+main p{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 2rem;
+    color: black;
+
+}
+
+body{
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-color: var(--background2-clr);
+    color: var(--whitetext);
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+#sidebar{
+    box-sizing: border-box;
+    height: 100%;
+    width: 250px;
+    padding: 5px 1em;
+    background-color: var(--background-clr);
+    border-right: 2px solid var(--border-clr);
+}
+
+#sidebar ul{
+    list-style: none;
+}
+
+/* listenin ilk elemani logo ve buton oldugu icin*/
+#sidebar>ul>li:first-child{ 
+    display: flex;
+    justify-content:flex-end;
+    margin-bottom: 1.5rem;
+    align-items: left;
+    color: #FFFFFF;
+    .logo{ /*logo fontu icin*/
+
+        font-weight: 800;
+        font-size: 1.4rem;
+    }
+}
+
+#sidebar ul li.active a{
+    color:var(--whitetext);
+    background-color: var(--hover-clr);
+    svg{
+        fill: var(--whitetext);
+    }
+}
+
+/* sidebar a ile alt menu itemlerine erisim */
+#sidebar a, #sidebar .dropdown-btn, #sidebar .logo{
+    border-radius: 0.6em;
+    padding: 0.8em;
+    gap: .8em;
+    text-decoration: none;
+    display: flex;
+    /* justify-content: flex-end; */
+    color: #FFFFFF;
+}
+
+.dropdown-btn{
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    line-height: 2; /*iconlarla texti ayni hizaya cek */
+    text-align: left;
+}
+
+#sidebar svg{
+    width: min(30px,10%);
+    /* flex-shrink: 1; */
+    fill:#FFFFFF;
+}
+
+#sidebar a span, #sidebar .dropdown-btn span{
+    flex-grow: 1;
+}
+
+#sidebar a:hover, #sidebar .dropdown-btn:hover{
+    background-color: var(--hover-clr);
+}
+
+
+/* row 0 oldugu icin butun elemanlar overflow oluyor
+onu da hidden yaparak hepsini gorunmez yapiyoruz
+rowu 1 fraction yaparak overflow durumunu bitiriyoruz
+ve gorunur oluyorlar */
+
+#sidebar .sub-menu{
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 300ms ease-in;
+        > div{
+        overflow: hidden;
+    }
+}
+
+/*js'de kullanmak icin submenu classlari*/
+#sidebar .sub-menu.show{
+    grid-template-rows: 1fr; /*1 fraction responsive oldugundan auto gibi calisiyor */
+}
+
+#sidebar .sub-menu.stayopen{
+    transition: 0ms ease-in;
+}
+
+.rotate svg:last-child{ 
+    rotate: 180deg; 
+}/*  lastchild olmazsa ilk icon da donuyor */
+
+#sidebar .sub-menu a{
+    padding: 1em;
+    margin-left: 2em;
+}
+
+#toggle-btn {
+    margin-left: auto;
+    padding: 1em;
+    background: none;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    svg{
+        width: 20px;
+        transition: 150ms ease;
+    }
+}
+
+/* HESAPLAYICI CSS BASLIYOR */
+
+.headerspan{
+    padding: 1.4em;
+    background-color: var(--background-clr);
+    #baslik{
+        margin-left: 1em;
+        font-size: 2rem;
+        font:1em;
+        color: var(--whitetext);
+    }
+}
+
+.container{
+    border-radius: 1em;
+    background-color:var(--box3);
+    padding: 2em;
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    grid-gap: 1rem;
+}
+
+.container .sliderSpan{
+    background-color: var(--box2);
+    padding: 1em;
+    border-radius: 1em;
+
+}
+
+
+.container .results{
+    background-color: #10caef;
+    padding: 1em;
+}
+
+.sliderList{
+    list-style-type: none;
+    padding: 0.3em;
+    
+
+p{
+        font-size: 1.5em;
+    }
+
+.slidDiv{
+        border-radius: 1em;
+        background-color: var(--box1);
+        gap:1em;
+        display: flex;    
+        padding: 1.5em;
+        margin-bottom: 2.5em;
+        >:last-child{
+            margin-top: 1em;
+        }
+    }
+    
+.slidDiv #yasSlider, .slidDiv #boySlider,.slidDiv #kiloSlider{
+        flex-grow: 1;
+        width: 100%;
+        cursor: pointer;
+        margin-top: 0;
+        margin-bottom: 0;
+
+    }
+
+#yasKutu,#kiloKutu,#boyKutu{
+        width: 3.1em;
+        text-align: center;
+        font-size: 1.1em;
+        border-radius: 0.3em;
+    }
+    input::placeholder{text-align:right;}
+
+.cinsiyetRadio{
+        background-color: var(--box1);
+        border-radius: 1em;
+        margin-bottom: 1.5em;
+        padding: 0.3em;
+        font-size: 1.3em;
+        color: 000;
+        display: flex;
+        label{
+            display: flex;
+            :nth-child(1){
+                margin-left: 1.4em;
+                margin-right: .3em;
+            }
+        }
+    }
+}
+.container .activityForm{
+    display: flex;
+    border-radius: 1em;
+    background-color: var(--box1);
+    label{
+        display: flex;
+    }
+    :nth-child(1){
+        margin-left: 1em;
+    }
+    :nth-child(2){
+        margin-left: .3em;
+        margin-right: 1.5em;
+    }
+    :nth-child(4){
+        margin-left: .3em;
+        margin-right: 1.5em;
+    }
+    :nth-child(6){
+        margin-left: .3em;
+        margin-right: 1.5em;
+    }
+    :nth-child(8){
+        margin-left: .3em;
+    }
+
+    p{
+        font-size: 1.5em;
+        margin: 0;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+}
+
+/* number inputun asagi yukari oklarini silmek icin */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+/* result box basliyor */
+.results{
+    border-radius: .8em;
+}
+.results .baslik2{
+    color: black;
+    font-weight: 500;
+    font-size: 1.5em;
+    margin-bottom: .5em;
+    margin-top: 1em;
+    background-color: var;
+}
+
+.results p{
+    margin-bottom: .5em;
+    margin-top: .5em;
+    font-size: 1.5em;
+}
+
+.results .description p{
+    font-size: 1em;
+    line-height: 1em;
+    
+}
+
+.results .description{
+    padding: .2em;
+    border-radius: 1em;
+    background-color: var(--box2);
+}
+
+.results .calorieRaw, .results .calorieActivity, .results .weightGain, .results .weightMaintain, .results .weightLoss{
+    background-color: var(--box2);
+    border-radius: .8em;
+    display: flex;
+    padding: 0.3em;
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+
+
+.results .calc{
+
+    border-radius: 1em;
+    background-color: var(--box2);
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    flex-wrap: wrap;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    :nth-child(2){
+        margin-left: 0.1em;
+        margin-right: 1.5em;
+    }
+    :nth-child(4){
+        margin-left: 0.1em;
+        margin-right: 1em;
+    }
+}
+
+.results .calc div{
+    color:white;
+    margin-top: 1.5em;
+
+}
+
+#calcButton{
+    font-size: 1.2em;
+    width: 40%;
+    padding: 0.5em;
+    border-radius: 1em;
+    border-color: #03045e;
+    cursor: pointer;
+
+}
+#calcButton:hover{
+    background-color: #00b4d8;
+
+}
+#calcButton:active{
+    background-color: #014f86;
+}
+
+#tooltip{
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+    padding: 0.3;
+    font-size: 1em;
+}

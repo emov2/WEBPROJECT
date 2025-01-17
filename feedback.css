@@ -1,0 +1,15 @@
+.tablespace{
+  padding:1em;
+  margin:1em;
+  background-color=var(--background2-clr);
+}
+
+th{
+text-align:left;
+font-size:2em;
+}
+
+td{
+  padding:0.3em;
+  font-size:1.5em;
+}
