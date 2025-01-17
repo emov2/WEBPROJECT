@@ -74,7 +74,7 @@
     <div class="wrapper">
 
         <div class="about">
-            <h3>Emirhan Baş tarafından Web Programlamaya Giriş Dersi için aşkla yapılmıştır. 17.01.2024</h3>
+            <h3>Emirhan Baş tarafından Web Programlamaya Giriş Dersi için aşkla yapılmıştır. 17.01.2025</h3>
             <br>
             <div class="label">
                 <img src="assets/img-20240513-wa0006.webp" width="400px">
